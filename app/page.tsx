@@ -469,5 +469,4 @@ return (
           </p>
       </div>
     </main>
-  );
 }
