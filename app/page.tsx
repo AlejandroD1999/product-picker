@@ -132,7 +132,6 @@ return (
     min-height: 100vh;
     padding: 22px 14px 44px;
   }
-`}</style>
 
       /* Top Command Bar */
       .topbar {
