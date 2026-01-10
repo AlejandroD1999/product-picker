@@ -29,23 +29,40 @@ export async function POST(req) {
 
     const createdAt = new Date().toISOString();
     const orderId = crypto.randomUUID();
+function getItem(items, key) {
+  if (!items) return { qty: "", size: "", color: "" };
 
-    await sheets.spreadsheets.values.append({
-      spreadsheetId,
-      range: "Sheet1!A:F",
-      valueInputOption: "RAW",
-      requestBody: {
-        values: [[
-          createdAt,
-          orderId,
-          body.name,
-          body.email,
-          JSON.stringify(body.items),
-          body.lockAt
-        ]],
-      },
-    });
+  const item = items[key];
+  return {
+    qty: item?.qty ?? "",
+    size: item?.size ?? "",
+    color: item?.color ?? ""
+  };
+}
+const p1 = getItem(body.items, "p1");
+const p2 = getItem(body.items, "p2");
+const p3 = getItem(body.items, "p3");
+const p4 = getItem(body.items, "p4");
+await sheets.spreadsheets.values.append({
+  spreadsheetId,
+  range: "Sheet1!A:Q",
+  valueInputOption: "RAW",
+  requestBody: {
+    values: [[
+      createdAt,
+      orderId,
+      body.name,
+      body.email,
 
+      p1.qty, p1.size, p1.color,
+      p2.qty, p2.size, p2.color,
+      p3.qty, p3.size, p3.color,
+      p4.qty, p4.size, p4.color,
+
+      body.lockAt
+    ]]
+  }
+});
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error(e);
