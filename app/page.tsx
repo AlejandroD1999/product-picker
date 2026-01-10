@@ -10,10 +10,10 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
-  { id: "p1", name: "Product 1", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
-  { id: "p2", name: "Product 2", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
-  { id: "p3", name: "Product 3", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
-  { id: "p4", name: "Product 4", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
+  { id: "p1", name: "Hoodie", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
+  { id: "p2", name: "T-Shirt", sizes: ["S", "M", "L", "XL"], colors: ["Black", "Green"] },
+  { id: "p3", name: "Coffee Mug", sizes: ["One Size"], colors: ["Black", "Green"] },
+  { id: "p4", name: "Coozie", sizes: ["One Size"], colors: ["Black", "Green"] },
 ];
 
 type LineItem = {
@@ -91,51 +91,61 @@ async function submit() {
         style={{ width: "100%", padding: 8, marginBottom: 20 }}
       />
 
-      {PRODUCTS.map(p => {
-        const item = items[p.id] ?? { qty: 0, size: p.sizes[0], color: p.colors[0] };
-        return (
-          <div key={p.id} style={{ border: "1px solid #ccc", padding: 12, marginBottom: 12 }}>
-            <strong>{p.name}</strong>
+{PRODUCTS.map((p) => {
+  const item = items[p.id] ?? { qty: 0, size: p.sizes[0], color: p.colors[0] };
 
-            <div>
-              Qty:
-              <input
-                type="number"
-                min={0}
-                value={item.qty}
-                onChange={e => updateItem(p, { qty: Number(e.target.value) })}
-                style={{ marginLeft: 8, width: 60 }}
-              />
-            </div>
+  return (
+    <div
+      key={p.id}
+      style={{
+        border: "1px solid #e5e7eb",
+        borderRadius: 8,
+        padding: 16,
+        marginBottom: 16,
+        background: "#fafafa",
+      }}
+    >
+      <h3 style={{ marginBottom: 8 }}>{p.name}</h3>
 
-            <div>
-              Size:
-              <select
-                value={item.size}
-                onChange={e => updateItem(p, { size: e.target.value })}
-                style={{ marginLeft: 8 }}
-              >
-                {p.sizes.map(s => (
-                  <option key={s}>{s}</option>
-                ))}
-              </select>
-            </div>
+      <div style={{ marginBottom: 8 }}>
+        Qty:
+        <input
+          type="number"
+          min={0}
+          value={item.qty}
+          onChange={(e) => updateItem(p, { qty: Number(e.target.value) })}
+          style={{ marginLeft: 8, width: 60 }}
+        />
+      </div>
 
-            <div>
-              Color:
-              <select
-                value={item.color}
-                onChange={e => updateItem(p, { color: e.target.value })}
-                style={{ marginLeft: 8 }}
-              >
-                {p.colors.map(c => (
-                  <option key={c}>{c}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        );
-      })}
+      <div style={{ marginBottom: 8 }}>
+        Size:
+        <select
+          value={item.size}
+          onChange={(e) => updateItem(p, { size: e.target.value })}
+          style={{ marginLeft: 8 }}
+        >
+          {p.sizes.map((s) => (
+            <option key={s}>{s}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        Color:
+        <select
+          value={item.color}
+          onChange={(e) => updateItem(p, { color: e.target.value })}
+          style={{ marginLeft: 8 }}
+        >
+          {p.colors.map((c) => (
+            <option key={c}>{c}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+})}
 
       <button onClick={submit} style={{ padding: "10px 20px" }}>
         Submit Order Request

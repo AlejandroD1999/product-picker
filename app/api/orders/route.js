@@ -63,6 +63,7 @@ await sheets.spreadsheets.values.append({
     ]]
   }
 });
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error(e);
