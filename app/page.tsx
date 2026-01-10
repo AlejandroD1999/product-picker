@@ -1,4 +1,4 @@
-"use client";
+Ôªø"use client";
 
 import { useMemo, useState } from "react";
 const BRAND = {
@@ -23,7 +23,7 @@ const BRAND = {
   radius: 12,
   shadow: "0 10px 28px rgba(0,0,0,0.45)",
 
-  // ìStencil vibeî fallback stack (best with Black Ops One / Saira Condensed if you add fonts later)
+  // ‚ÄúStencil vibe‚Äù fallback stack (best with Black Ops One / Saira Condensed if you add fonts later)
   font: `"Black Ops One", "Saira Condensed", "Oswald", "Impact", system-ui, sans-serif`,
 };
 type Product = {
@@ -375,7 +375,7 @@ return (
 
         <div className="brandText">
           <p className="brandTitle">BRONCO SWAG GEAR</p>
-          <p className="brandSub">AUTHORIZED ORDER PANEL ï LOCK DATE: {lockDate}</p>
+          <p className="brandSub">AUTHORIZED ORDER PANEL ‚Ä¢ LOCK DATE: {lockDate}</p>
         </div>
       </div>
 
@@ -411,7 +411,7 @@ return (
             <div key={p.id} className="card">
               <div className="cardHead">
                 <h3 className="cardName">{p.name}</h3>
-                <span className="cardTag">ITEM ï {p.id.toUpperCase()}</span>
+                <span className="cardTag">ITEM ‚Ä¢ {p.id.toUpperCase()}</span>
               </div>
 
               <div className="row">
