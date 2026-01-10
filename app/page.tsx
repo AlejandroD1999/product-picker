@@ -46,20 +46,32 @@ export default function Page() {
     });
   }
 
-  function submit() {
-    if (!name.trim() || !email.trim()) {
-      alert("Please enter name and email");
-      return;
-    }
-
-    const selected = Object.values(items).filter(i => i.qty > 0);
-
-    alert(
-      `Order submitted!\n\nName: ${name}\nEmail: ${email}\nItems:\n` +
-        selected.map(i => `${i.productId} ${i.size} ${i.color} x${i.qty}`).join("\n") +
-        `\n\nOrder locks on: ${lockDate}`
-    );
+async function submit() {
+  if (!name.trim() || !email.trim()) {
+    alert("Please enter name and email");
+    return;
   }
+
+  const res = await fetch("/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      email,
+      items,
+      lockAt
+    })
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    alert(data.error || "Order failed");
+    return;
+  }
+
+  alert("Order submitted!");
+}
 
   return (
     <main style={{ maxWidth: 600, margin: "40px auto", fontFamily: "sans-serif" }}>
