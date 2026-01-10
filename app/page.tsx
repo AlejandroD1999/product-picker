@@ -59,7 +59,7 @@ async function submit() {
       name,
       email,
       items,
-      lockdate,
+      lockDate,
     })
   });
 
