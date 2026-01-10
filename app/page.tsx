@@ -99,30 +99,27 @@ async function submit() {
 
 return (
   <>
-    <style jsx global>{`
-      :root {
-        --bg: ${BRAND.bg};
-        --panel: ${BRAND.panel};
-        --card: ${BRAND.card};
-        --input: ${BRAND.input};
-        --border: ${BRAND.borders};
-        --text: ${BRAND.text};
-        --muted: ${BRAND.muted};
-        --green: ${BRAND.green};
-        --green2: ${BRAND.green2};
-        --red: ${BRAND.red};
-        --redHover: ${BRAND.redHover};
-        --radius: ${BRAND.radius}px;
-        --shadow: ${BRAND.shadow};
-        --font: ${BRAND.font};
-      }
+<style jsx global>{`
+  :root {
+    --bg: ${BRAND.bg};
+    --panel: ${BRAND.panel};
+    --card: ${BRAND.card};
+    --input: ${BRAND.input};
+    --border: ${BRAND.borders};
+    --text: ${BRAND.text};
+    --muted: ${BRAND.muted};
+    --green: ${BRAND.green};
+    --red: ${BRAND.red};
+    --font: ${BRAND.font};
+  }
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font);
-      }
-
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+  }
+`}</style>
       .wrap {
         min-height: 100vh;
         padding: 22px 14px 44px;
@@ -462,7 +459,7 @@ return (
           <p className="lockText">
             Orders lock on: <strong>{lockDate}</strong>
           </p>
-        </div>
-      </main>
-    );
-  }
+      </div>
+    </main>
+  );
+}
