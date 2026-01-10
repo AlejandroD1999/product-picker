@@ -100,7 +100,7 @@ async function submit() {
 return (
   <>
 <style jsx global>{`
-  :root {
+  :root{
     --bg: ${BRAND.bg};
     --panel: ${BRAND.panel};
     --card: ${BRAND.card};
@@ -128,10 +128,8 @@ return (
     font-family: var(--font);
   }
 
-  .wrap {
-    min-height: 100vh;
-    padding: 22px 14px 44px;
-  }
+  .wrap { min-height: 100vh; padding: 22px 14px 44px; }
+`}</style>
 
       /* Top Command Bar */
       .topbar {
@@ -469,4 +467,4 @@ return (
           </p>
       </div>
     );
-  })}
+    }
