@@ -6,18 +6,23 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+const privateKey = process.env.GOOGLE_PRIVATE_KEY;
 
-    if (!clientEmail) throw new Error("Missing GOOGLE_CLIENT_EMAIL env var");
-    if (!privateKey) throw new Error("Missing GOOGLE_PRIVATE_KEY env var");
+if (!clientEmail) {
+  throw new Error("Missing GOOGLE_CLIENT_EMAIL env var");
+}
 
-    const auth = new google.auth.JWT(
-      clientEmail,
-      null,
-      privateKey.replace(/\\n/g, "\n"),
-      ["https://www.googleapis.com/auth/spreadsheets"]
-    );
+if (!privateKey) {
+  throw new Error("Missing GOOGLE_PRIVATE_KEY env var");
+}
+
+const auth = new google.auth.JWT(
+  clientEmail,
+  null,
+  privateKey.replace(/\\n/g, "\n"),
+  ["https://www.googleapis.com/auth/spreadsheets"]
+);
 
     const sheets = google.sheets({ version: "v4", auth });
 
