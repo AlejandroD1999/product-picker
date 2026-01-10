@@ -468,5 +468,5 @@ return (
             Orders lock on: <strong>{lockDate}</strong>
           </p>
       </div>
-    </main>
-}
+    );
+  })}
