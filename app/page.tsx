@@ -109,8 +109,16 @@ return (
     --text: ${BRAND.text};
     --muted: ${BRAND.muted};
     --green: ${BRAND.green};
+    --green2: ${BRAND.green2};
     --red: ${BRAND.red};
+    --redHover: ${BRAND.redHover};
+    --radius: ${BRAND.radius}px;
+    --shadow: ${BRAND.shadow};
     --font: ${BRAND.font};
+  }
+
+  html, body {
+    height: 100%;
   }
 
   body {
@@ -119,11 +127,12 @@ return (
     color: var(--text);
     font-family: var(--font);
   }
+
+  .wrap {
+    min-height: 100vh;
+    padding: 22px 14px 44px;
+  }
 `}</style>
-      .wrap {
-        min-height: 100vh;
-        padding: 22px 14px 44px;
-      }
 
       /* Top Command Bar */
       .topbar {
