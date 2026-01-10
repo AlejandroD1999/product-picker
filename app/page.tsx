@@ -100,7 +100,7 @@ async function submit() {
 return (
   <>
 <style jsx global>{`
-  :root{
+  :root {
     --bg: ${BRAND.bg};
     --panel: ${BRAND.panel};
     --card: ${BRAND.card};
@@ -128,59 +128,25 @@ return (
     font-family: var(--font);
   }
 
-  .wrap { min-height: 100vh; padding: 22px 14px 44px; }
+  .wrap {
+    min-height: 100vh;
+    padding: 22px 14px 44px;
+  }
+
+  /* Top Command Bar */
+  .topbar {
+    max-width: 860px;
+    margin: 0 auto 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(31,42,31,0.95), rgba(15,20,15,0.92));
+    box-shadow: var(--shadow);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
 `}</style>
-
-      /* Top Command Bar */
-      .topbar {
-        max-width: 860px;
-        margin: 0 auto 18px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: linear-gradient(180deg, rgba(31,42,31,0.95), rgba(15,20,15,0.92));
-        box-shadow: var(--shadow);
-        padding: 14px 16px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .brandMark {
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: rgba(0,0,0,0.25);
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        flex: 0 0 auto;
-      }
-
-      .brandMark img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .brandText {
-        flex: 1;
-        line-height: 1.1;
-      }
-
-      .brandTitle {
-        margin: 0;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        font-weight: 800;
-        font-size: 18px;
-      }
-
-      .brandSub {
-        margin: 6px 0 0;
-        color: var(--muted);
-        font-size: 12px;
-      }
 
       /* Main Panel */
       .panel {
