@@ -237,11 +237,12 @@ export default function Page() {
 
 .logoCenter {
   text-align: center;
-  font-size: 20px;
+  font-size: 60px;
   font-weight: 900;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   color: var(--green);
+  text-shadow: 0 0 12px rgba(75, 179, 32, 0.25);
 }
 
 .logoRight {
