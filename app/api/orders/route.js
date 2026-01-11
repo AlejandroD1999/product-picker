@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+ï»¿import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
 import crypto from "crypto";
@@ -70,20 +70,21 @@ await sheets.spreadsheets.values.append({
 await resend.emails.send({
   from: process.env.FROM_EMAIL || "Bronco Swag Gear <onboarding@resend.dev>",
   to: body.email,
-  subject: "MRF-D 26.3 Merch — Order Received",
+  subject: "MRF-D 26.3 Merch - Order Received",
   html: `
     <h2>Order Confirmed</h2>
     <p>Thanks <strong>${body.name}</strong>,</p>
     <p>Your merch request has been received.</p>
 
     <p><strong>Order ID:</strong> ${orderId}</p>
-    <p><strong>Lock Date:</strong> ${body.lockAt}</p>
+    <p><strong>Lock Date:</strong> ${body.lockDate}</p>
 
     <hr />
     <p>You may edit your order until the lock date.</p>
     <p>Bronco Swag Gear</p>
   `,
 });
+
 
     return NextResponse.json({ ok: true });
   } catch (e) {
