@@ -219,18 +219,58 @@ export default function Page() {
           padding: 18px;
         }
 
-        .logoRow {
-          text-align: center;
-          margin-bottom: 16px;
-          padding-bottom: 14px;
-          border-bottom: 2px solid rgba(75, 83, 32, 0.45);
-        }
+.logoRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 18px;
+}
 
-        .logoRow img {
-          max-width: 240px;
-          width: 100%;
-          filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-        }
+.logoLeft {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logoLeft img {
+  max-width: 240px;
+}
+
+.logoCenter {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.logoRight {
+  /* intentionally empty for balance */
+}
+
+@media (max-width: 720px) {
+  .logoRow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .logoLeft {
+    justify-content: center;
+  }
+}
+
+.logoCenter {
+  position: relative;
+}
+
+.logoCenter::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--green);
+  margin: 6px auto 0;
+}
 
         .pageTitle {
           margin: 14px 0 6px;
@@ -402,11 +442,18 @@ export default function Page() {
 
         {/* MAIN PANEL */}
         <main className="panel">
-          {/* BIG LOGO (optional) */}
+          {/* BIG LOGO */}
           <div className="logoRow">
-            <img src="/logo.png" alt="Bronco Swag Gear" />
-          </div>
+            <div className="logoLeft">
+              <img src="/logo.png" alt="Bronco Swag Gear" />
+            </div>
 
+            <div className="logoCenter">
+              CLC-B
+            </div>
+
+            <div className="logoRight" />
+          </div>
           <h1 className="pageTitle">Product Picker</h1>
           <p className="pageHint">Submit your selections. You can edit for 7 days.</p>
 
