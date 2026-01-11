@@ -455,7 +455,7 @@ export default function Page() {
 
             <div className="logoRight" />
           </div>
-          <h1 className="pageTitle">Product Picker</h1>
+          <h1 className="pageTitle">MRF-D 26.3 Merch</h1>
           <p className="pageHint">Submit your selections. You can edit for 7 days.</p>
 
           <div className="grid2">
