@@ -19,6 +19,19 @@ function getItem(items, key) {
 export async function POST(req) {
   try {
     const body = await req.json();
+    // Convert items array → object keyed by productId
+    const itemsArray = Array.isArray(body.items) ? body.items : [];
+
+    const items = itemsArray.reduce((acc, item) => {
+      if (item.productId) {
+        acc[item.productId] = {
+          qty: item.qty ?? "",
+          size: item.size ?? "",
+          color: item.color ?? "",
+        };
+      }
+      return acc;
+    }, {});
 
     const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
     const privateKey = process.env.GOOGLE_PRIVATE_KEY;
