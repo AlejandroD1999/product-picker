@@ -237,7 +237,7 @@ export default function Page() {
 
 .logoCenter {
   text-align: center;
-  font-size: 60px;
+  font-size: 90px;
   font-weight: 900;
   letter-spacing: 6px;
   text-transform: uppercase;
