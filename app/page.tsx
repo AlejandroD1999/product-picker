@@ -153,13 +153,14 @@ export default function Page() {
 
         .wrap {
           min-height: 100vh;
-          padding: 22px 14px 44px;
+          width: 100%;
         }
 
         /* Top Command Bar */
         .topbar {
-          max-width: 860px;
-          margin: 0 auto 18px;
+          width: 100%;
+          max-width: none;
+          margin: 0 0 18px;
           border: 1px solid var(--border);
           border-radius: var(--radius);
           background: linear-gradient(
@@ -207,8 +208,10 @@ export default function Page() {
 
         /* Main Panel */
         .panel {
-          max-width: 860px;
-          margin: 0 auto;
+          padding: 24px 32px;
+          width:100%;
+          max-width: none;
+          margin: 0;
           background: var(--panel);
           border: 1px solid var(--border);
           border-radius: var(--radius);
