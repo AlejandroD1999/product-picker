@@ -53,10 +53,10 @@ export async function POST(req) {
     const createdAt = new Date().toISOString();
     const orderId = crypto.randomUUID();
 
-    const p1 = getItem(body.items, "p1");
-    const p2 = getItem(body.items, "p2");
-    const p3 = getItem(body.items, "p3");
-    const p4 = getItem(body.items, "p4");
+    const p1 = getItem(items, "p1");
+    const p2 = getItem(items, "p2");
+    const p3 = getItem(items, "p3");
+    const p4 = getItem(items, "p4");
 
     // 1) WRITE TO GOOGLE SHEETS
     await sheets.spreadsheets.values.append({
